@@ -4,5 +4,5 @@
   "description": "Adds a superscript format with a simple shortcut",
   "isDesktopOnly": false,
   "js": "main.js",
-  "version": "0.0.1"
+  "version": "1.0.0"
 }
