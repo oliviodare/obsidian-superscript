@@ -10,6 +10,6 @@ Simiarly to Benature's, simply use the hotkey `cmd/ctrl+S` to add an superscript
 
 ## Demo
 ![Obsidian superscript plugin demo](demo.gif)
-<img src="demo.gif" width="55%" height=auto/>
+<img src="demo.gif" width="75%" height=auto/>
 
 
