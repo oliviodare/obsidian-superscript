@@ -1,14 +1,14 @@
 import { MarkdownView, Plugin, EditorPosition } from "obsidian";
 
-export default class Underline extends Plugin {
+export default class Superscript extends Plugin {
   async onload() {
     // console.log(this.app);
 
     // this.app.workspace.on('layout-change', () => {
-    //   this.updateUnderline();
+    //   this.updateSuperscript();
     // })
     // this.app.metadataCache.on('changed', (_file) => {
-    //   this.updateUnderline();
+    //   this.updateSuperscript();
     // })
 
     this.addCommand({
@@ -18,7 +18,7 @@ export default class Underline extends Plugin {
       hotkeys: [
         {
           modifiers: ["Mod"],
-          key: "u",
+          key: "s",
         },
       ],
     });
@@ -37,8 +37,8 @@ export default class Underline extends Plugin {
       return editor.offsetToPos(pos);
     }
 
-    /* Detect whether the selected text is packed by <u></u>.
-       If true, unpack it, else pack with <u></u>. */
+    /* Detect whether the selected text is packed by <sup></sup>.
+       If true, unpack it, else pack with <sup></sup>. */
 
     const fos = editor.posToOffset(editor.getCursor("from")); // from offset
     const tos = editor.posToOffset(editor.getCursor("to")); // to offset
@@ -49,30 +49,30 @@ export default class Underline extends Plugin {
     var startText = editor.getRange(Cursor(fos), Cursor(fos + 3));
     var endText = editor.getRange(Cursor(tos - 4), Cursor(tos));
 
-    if (beforeText === "<u>" && afterText === "</u>") {
-      //=> undo underline (inside selection)
+    if (beforeText === "<sup>" && afterText === "</sup>") {
+      //=> undo superscript (inside selection)
 
       editor.setSelection(Cursor(fos - 3), Cursor(tos + 4));
       editor.replaceSelection(`${selectedText}`);
       // re-select
       editor.setSelection(Cursor(fos - 3), Cursor(tos - 3));
-    } else if (startText === "<u>" && endText === "</u>") {
-      //=> undo underline (outside selection)
+    } else if (startText === "<sup>" && endText === "</sup>") {
+      //=> undo superscript (outside selection)
       
       editor.replaceSelection(editor.getRange(Cursor(fos + 3), Cursor(tos - 4)));
       // re-select
       editor.setSelection(Cursor(fos), Cursor(tos - 7));
     } else {
-      //=> do underline
+      //=> do superscript
 
       if (selectedText) {
         // console.log("selected");
-        editor.replaceSelection(`<u>${selectedText}</u>`);
+        editor.replaceSelection(`<sup>${selectedText}</sup>`);
         // re-select
         editor.setSelection(Cursor(fos + 3), Cursor(tos + 3));
       } else {
         // console.log("not selected");
-        editor.replaceSelection(`<u></u>`);
+        editor.replaceSelection(`<sup></sup>`);
         let cursor = editor.getCursor();
         cursor.ch -= 4;
         editor.setCursor(cursor);

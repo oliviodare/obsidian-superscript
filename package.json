@@ -1,7 +1,7 @@
 {
-  "name": "obsidian-underline",
-  "version": "1.0.0",
-  "description": "Add underline with shortcut",
+  "name": "obsidian-superscript",
+  "version": "0.0.1",
+  "description": "Adds a superscript format with a simple shortcut",
   "main": "main.js",
   "scripts": {
     "dev": "rollup --config rollup.config.js -w",
