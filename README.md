@@ -9,6 +9,6 @@ Simiarly to Benature's, simply use the hotkey `cmd/ctrl+S` to add an superscript
 
 
 ## Demo
-![Obsidian superscript plugin demo](demo.gif)
+![Obsidian superscript plugin demo | 100](demo.gif)
 
 
